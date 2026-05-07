@@ -5,32 +5,59 @@
         ResizeMode="NoResize"
         ShowInTaskbar="False"
         Topmost="True"
-        Background="Black"
         AllowsTransparency="False">
-    <Grid Background="#050505">
+    <Grid>
+        <Grid.Background>
+            <RadialGradientBrush RadiusX="1.3" RadiusY="1.1" GradientOrigin="0.5,0.35">
+                <GradientStop Color="#11314E" Offset="0" />
+                <GradientStop Color="#0B1621" Offset="0.52" />
+                <GradientStop Color="#050A10" Offset="1" />
+            </RadialGradientBrush>
+        </Grid.Background>
+
+        <Grid Opacity="0.22">
+            <Ellipse Width="520" Height="520" Fill="#1E27D2FF" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-140,-120,0,0" />
+            <Ellipse Width="460" Height="460" Fill="#22198CFF" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,-100,-140" />
+        </Grid>
+
         <Border x:Name="ContentPanel"
-                Width="420"
-                Padding="28"
+                Width="500"
+                Padding="30"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Background="#151515"
-                BorderBrush="#2C2C2C"
+                Background="#CC0E1B28"
+                BorderBrush="#33527793"
                 BorderThickness="1"
-                CornerRadius="6">
+                CornerRadius="8">
             <StackPanel>
-                <TextBlock FontSize="30" FontWeight="SemiBold" Foreground="White" Text="AI Task Running" />
-                <TextBlock Margin="0,10,0,0" Foreground="#BBBBBB" Text="当前桌面已被临时遮挡" />
-                <TextBlock Margin="0,4,0,18" Foreground="#BBBBBB" Text="请输入密码解锁" />
-                <TextBlock x:Name="ClockText" Margin="0,0,0,18" FontSize="18" Foreground="#D7D7D7" />
-                <TextBlock Margin="0,0,0,12"
-                           Foreground="#9CC3FF"
+                <Image Width="72" Height="72" HorizontalAlignment="Left" Source="pack://application:,,,/Resources/logo.png" Stretch="Uniform" />
+                <TextBlock Margin="0,18,0,0" FontSize="32" FontWeight="SemiBold" Foreground="White" Text="AI Task Running" />
+                <TextBlock Margin="0,10,0,0" Foreground="{StaticResource TextSecondaryBrush}" FontSize="15" Text="当前桌面已被临时遮挡，后台任务继续运行。" TextWrapping="Wrap" />
+                <TextBlock Margin="0,4,0,20" Foreground="{StaticResource TextSecondaryBrush}" FontSize="15" Text="请输入密码以恢复桌面显示。" TextWrapping="Wrap" />
+
+                <TextBlock x:Name="ClockText" Margin="0,0,0,18" FontSize="22" Foreground="White" FontWeight="SemiBold" />
+
+                <TextBlock Margin="0,0,0,14"
+                           Foreground="{StaticResource AccentBrush}"
+                           FontSize="14"
                            Text="{Binding OverlayMessage}"
                            TextWrapping="Wrap"
                            Visibility="{Binding ShowMessage, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                <PasswordBox x:Name="PasswordInput" Height="38" Margin="0,0,0,12" PasswordChar="●" />
-                <Button Width="110" Height="36" HorizontalAlignment="Left" Content="解锁" Click="OnUnlockClicked" />
-                <TextBlock Margin="0,14,0,0" Foreground="#E67E22" Text="{Binding StatusMessage}" TextWrapping="Wrap" />
+
+                <PasswordBox x:Name="PasswordInput" Height="42" Margin="0,0,0,14" PasswordChar="●" />
+                <Button Width="120" Height="42" HorizontalAlignment="Left" Content="解锁桌面" Click="OnUnlockClicked" />
+                <TextBlock Margin="0,16,0,0" Foreground="{StaticResource WarningBrush}" Text="{Binding StatusMessage}" TextWrapping="Wrap" />
             </StackPanel>
         </Border>
+
+        <StackPanel x:Name="SecondaryMonitorPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+            <Image Width="88" Height="88" HorizontalAlignment="Center" Source="pack://application:,,,/Resources/logo.png" Stretch="Uniform" />
+            <TextBlock Margin="0,18,0,0" FontSize="24" FontWeight="SemiBold" Foreground="White" Text="Desktop Privacy Shield" HorizontalAlignment="Center" />
+            <TextBlock Margin="0,10,0,0"
+                       Foreground="{StaticResource TextSecondaryBrush}"
+                       FontSize="15"
+                       Text="桌面已进入隐私遮罩模式"
+                       HorizontalAlignment="Center" />
+        </StackPanel>
     </Grid>
 </Window>

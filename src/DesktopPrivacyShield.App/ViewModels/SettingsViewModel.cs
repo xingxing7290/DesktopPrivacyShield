@@ -1,6 +1,5 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using DesktopPrivacyShield.App.Infrastructure;
-using DesktopPrivacyShield.App.Models;
 using DesktopPrivacyShield.App.Services;
 
 namespace DesktopPrivacyShield.App.ViewModels;

@@ -38,7 +38,7 @@ public sealed class TrayService : ITrayService
         _notifyIcon = new Forms.NotifyIcon
         {
             Text = "Desktop Privacy Shield",
-            Icon = SystemIcons.Shield,
+            Icon = LoadTrayIcon(),
             Visible = false,
             ContextMenuStrip = new Forms.ContextMenuStrip()
         };
@@ -55,6 +55,12 @@ public sealed class TrayService : ITrayService
 
     private IApplicationCoordinator ResolveCoordinator() =>
         (IApplicationCoordinator)_serviceProvider.GetService(typeof(IApplicationCoordinator))!;
+
+    private static Icon LoadTrayIcon()
+    {
+        var resource = System.Windows.Application.GetResourceStream(new Uri("pack://application:,,,/Resources/app.ico"));
+        return resource is null ? SystemIcons.Shield : new Icon(resource.Stream);
+    }
 
     public void Initialize()
     {

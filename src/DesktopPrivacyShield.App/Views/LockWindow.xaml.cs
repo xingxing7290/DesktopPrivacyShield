@@ -30,6 +30,7 @@ public partial class LockWindow : Window
         if (!_isPrimary)
         {
             ContentPanel.Visibility = Visibility.Collapsed;
+            SecondaryMonitorPanel.Visibility = Visibility.Visible;
         }
 
         _clockTimer = new DispatcherTimer

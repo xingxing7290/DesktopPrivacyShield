@@ -5,7 +5,6 @@ namespace DesktopPrivacyShield.App.ViewModels;
 
 public sealed partial class LockViewModel : ObservableObject
 {
-    private readonly IPasswordService _passwordService;
     private readonly IConfigService _configService;
 
     [ObservableProperty]
@@ -25,7 +24,6 @@ public sealed partial class LockViewModel : ObservableObject
 
     public LockViewModel(IPasswordService passwordService, IConfigService configService)
     {
-        _passwordService = passwordService;
         _configService = configService;
         LoadSettings();
     }
@@ -36,22 +34,5 @@ public sealed partial class LockViewModel : ObservableObject
         ShowClock = options.ShowClock;
         ShowMessage = options.ShowMessage;
         OverlayMessage = options.Message;
-    }
-
-    public async Task<bool> TryUnlockAsync(string password)
-    {
-        var ok = await _passwordService.VerifyPasswordAsync(password);
-        if (!ok)
-        {
-            var delay = _passwordService.GetCurrentDelay();
-            StatusMessage = delay > TimeSpan.Zero
-                ? $"密码错误，请稍后重试。当前延迟 {delay.TotalSeconds:0} 秒。"
-                : "密码错误。";
-            return false;
-        }
-
-        Password = string.Empty;
-        StatusMessage = string.Empty;
-        return true;
     }
 }
