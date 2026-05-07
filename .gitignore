@@ -4,6 +4,7 @@ obj/
 TestResults/
 
 publish/
+.tools/
 
 *.user
 *.suo

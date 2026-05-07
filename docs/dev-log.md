@@ -7,3 +7,4 @@
 - 实现首次运行密码设置窗口、主界面、设置窗口、全屏遮罩窗口和多显示器遮罩逻辑。
 - 接入 `Microsoft.Extensions.Hosting`、依赖注入和 Serilog 文件日志。
 - 完成基础单元测试，并验证应用工程可编译。
+- 补充 `0.1.0` 版本元数据、`CHANGELOG.md`、GitHub Release 说明和正式 Inno Setup 安装脚本。

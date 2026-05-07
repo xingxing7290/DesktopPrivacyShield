@@ -200,6 +200,8 @@ installer\setup.iss
 - [开发日志](docs/dev-log.md)
 - [安全边界说明](docs/security-boundary.md)
 - [用户手册](docs/user-manual.md)
+- [变更日志](CHANGELOG.md)
+- [v0.1.0 发布说明](docs/release-notes-v0.1.0.md)
 
 ## 当前限制
 
