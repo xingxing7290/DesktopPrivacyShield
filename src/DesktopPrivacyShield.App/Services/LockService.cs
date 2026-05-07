@@ -10,6 +10,7 @@ public sealed class LockService : ILockService
     private readonly IConfigService _configService;
     private readonly IPasswordService _passwordService;
     private readonly IMonitorService _monitorService;
+    private readonly IWindowsLockService _windowsLockService;
     private readonly IServiceProvider _serviceProvider;
     private readonly ILogger<LockService> _logger;
     private readonly List<LockWindow> _windows = [];
@@ -19,12 +20,14 @@ public sealed class LockService : ILockService
         IConfigService configService,
         IPasswordService passwordService,
         IMonitorService monitorService,
+        IWindowsLockService windowsLockService,
         IServiceProvider serviceProvider,
         ILogger<LockService> logger)
     {
         _configService = configService;
         _passwordService = passwordService;
         _monitorService = monitorService;
+        _windowsLockService = windowsLockService;
         _serviceProvider = serviceProvider;
         _logger = logger;
     }
@@ -33,11 +36,11 @@ public sealed class LockService : ILockService
 
     public event EventHandler<bool>? LockStateChanged;
 
-    public Task LockAsync()
+    public async Task LockAsync()
     {
         if (IsLocked)
         {
-            return Task.CompletedTask;
+            return;
         }
 
         IsLocked = true;
@@ -45,7 +48,13 @@ public sealed class LockService : ILockService
         CreateWindows();
         _logger.LogInformation("Lock mode entered.");
         LockStateChanged?.Invoke(this, true);
-        return Task.CompletedTask;
+
+        if (_configService.Current.Lock.AutoWindowsLock)
+        {
+            _logger.LogInformation("Auto Windows lock is enabled. LockWorkStation will be invoked after overlay is shown.");
+            await Task.Delay(250);
+            _windowsLockService.LockWorkStation();
+        }
     }
 
     public async Task UnlockAsync(string password)

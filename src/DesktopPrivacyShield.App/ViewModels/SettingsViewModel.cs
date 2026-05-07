@@ -20,6 +20,7 @@ public sealed partial class SettingsViewModel : ObservableObject
     [ObservableProperty] private bool _coverAllMonitors;
     [ObservableProperty] private bool _showClock;
     [ObservableProperty] private bool _showMessage;
+    [ObservableProperty] private bool _autoWindowsLock;
     [ObservableProperty] private string _message = string.Empty;
     [ObservableProperty] private string _currentPassword = string.Empty;
     [ObservableProperty] private string _newPassword = string.Empty;
@@ -55,6 +56,7 @@ public sealed partial class SettingsViewModel : ObservableObject
         CoverAllMonitors = config.Lock.CoverAllMonitors;
         ShowClock = config.Lock.ShowClock;
         ShowMessage = config.Lock.ShowMessage;
+        AutoWindowsLock = config.Lock.AutoWindowsLock;
         Message = config.Lock.Message;
         StatusMessage = string.Empty;
     }
@@ -71,6 +73,7 @@ public sealed partial class SettingsViewModel : ObservableObject
         config.Lock.CoverAllMonitors = CoverAllMonitors;
         config.Lock.ShowClock = ShowClock;
         config.Lock.ShowMessage = ShowMessage;
+        config.Lock.AutoWindowsLock = AutoWindowsLock;
         config.Lock.Message = Message.Trim();
 
         if (!string.IsNullOrWhiteSpace(NewPassword) || !string.IsNullOrWhiteSpace(ConfirmNewPassword))

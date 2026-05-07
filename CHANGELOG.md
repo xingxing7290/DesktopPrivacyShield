@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0] - 2026-05-07
+
+### Added
+
+- Automatic Windows system lock option that invokes `LockWorkStation` after the overlay is shown
+- New generated brand logo integrated into the application icon, window icon, and tray icon
+- Unified visual theme resources for the WPF application
+
+### Changed
+
+- Modernized main window, first-run setup window, settings window, and lock overlay UI
+- Improved settings structure and explanatory text for system lock behavior
+- Refreshed installer output and release artifacts for the new version
+
 ## [0.1.0] - 2026-05-07
 
 ### Added

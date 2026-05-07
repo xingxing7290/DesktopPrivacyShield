@@ -9,10 +9,10 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources\app.ico</ApplicationIcon>
     <AssemblyName>DesktopPrivacyShield.App</AssemblyName>
-    <Version>0.1.0</Version>
-    <FileVersion>0.1.0.0</FileVersion>
-    <AssemblyVersion>0.1.0.0</AssemblyVersion>
-    <InformationalVersion>0.1.0</InformationalVersion>
+    <Version>0.2.0</Version>
+    <FileVersion>0.2.0.0</FileVersion>
+    <AssemblyVersion>0.2.0.0</AssemblyVersion>
+    <InformationalVersion>0.2.0</InformationalVersion>
     <Company>xingxing7290</Company>
     <Product>DesktopPrivacyShield</Product>
     <Description>Windows desktop privacy overlay tool for keeping the current session visible only behind a fullscreen lock overlay.</Description>

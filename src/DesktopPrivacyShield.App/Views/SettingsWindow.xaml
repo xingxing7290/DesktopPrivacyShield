@@ -32,7 +32,7 @@
                     <TextBlock FontSize="28" FontWeight="SemiBold" Text="应用设置" />
                     <TextBlock Margin="0,8,0,0"
                                Foreground="{StaticResource TextSecondaryBrush}"
-                               Text="调整遮罩行为、快捷键、开机自启和解锁密码。"
+                               Text="调整遮罩行为、快捷键、系统锁屏联动、开机自启和解锁密码。"
                                TextWrapping="Wrap" />
                 </StackPanel>
             </Grid>
@@ -50,6 +50,13 @@
                         <CheckBox Content="开机自启" IsChecked="{Binding StartWithWindows}" />
                         <CheckBox Content="启动后立即遮罩" IsChecked="{Binding StartLocked}" />
                         <CheckBox Content="启用空闲自动遮罩" IsChecked="{Binding IdleLockEnabled}" />
+                        <CheckBox Content="进入遮罩后自动调用 Windows 系统锁屏" IsChecked="{Binding AutoWindowsLock}" />
+
+                        <Border Margin="0,12,0,0" Background="#80111F2C" BorderBrush="{StaticResource BorderBrushStrong}" BorderThickness="1" CornerRadius="8" Padding="12">
+                            <TextBlock Foreground="{StaticResource TextSecondaryBrush}"
+                                       Text="说明：这不是在应用窗口上叠加一个系统页面，而是在遮罩显示后调用 Windows 原生锁屏。用户解锁 Windows 后，会回到本软件遮罩界面。"
+                                       TextWrapping="Wrap" />
+                        </Border>
 
                         <StackPanel Margin="0,16,0,0">
                             <TextBlock Style="{StaticResource LabelTextStyle}" Text="空闲分钟数" />

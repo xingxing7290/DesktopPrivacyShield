@@ -27,6 +27,7 @@ public sealed class LockOptions
     public bool CoverAllMonitors { get; set; } = true;
     public bool ShowClock { get; set; } = true;
     public bool ShowMessage { get; set; } = true;
+    public bool AutoWindowsLock { get; set; }
     public string Message { get; set; } = "AI 任务运行中，请勿操作";
 }
 

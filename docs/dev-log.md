@@ -8,3 +8,4 @@
 - 接入 `Microsoft.Extensions.Hosting`、依赖注入和 Serilog 文件日志。
 - 完成基础单元测试，并验证应用工程可编译。
 - 补充 `0.1.0` 版本元数据、`CHANGELOG.md`、GitHub Release 说明和正式 Inno Setup 安装脚本。
+- 补充 `0.2.0` 功能版本：新增自动调用 Windows 系统锁屏选项，重做应用品牌 logo 与主要窗口视觉样式。

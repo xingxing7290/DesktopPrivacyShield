@@ -1,7 +1,7 @@
 ; DesktopPrivacyShield Inno Setup script
 
 #define MyAppName "DesktopPrivacyShield"
-#define MyAppVersion "0.1.0"
+#define MyAppVersion "0.2.0"
 #define MyAppPublisher "xingxing7290"
 #define MyAppURL "https://github.com/xingxing7290/-esktopPrivacyShield"
 #define MyAppExeName "DesktopPrivacyShield.App.exe"
