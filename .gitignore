@@ -1,0 +1,13 @@
+bin/
+obj/
+.vs/
+TestResults/
+
+publish/
+
+*.user
+*.suo
+*.cache
+*.pdb
+
+*.log

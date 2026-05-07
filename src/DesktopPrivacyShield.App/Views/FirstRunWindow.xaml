@@ -1,0 +1,34 @@
+<Window x:Class="DesktopPrivacyShield.App.Views.FirstRunWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="首次设置密码"
+        Width="420"
+        Height="320"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock FontSize="22" FontWeight="SemiBold" Text="DesktopPrivacyShield" />
+        <TextBlock Grid.Row="1" Margin="0,8,0,24" Foreground="#666" Text="首次启动需要设置本地解锁密码。" TextWrapping="Wrap" />
+
+        <PasswordBox x:Name="PasswordInput" Grid.Row="2" Height="36" Margin="0,0,0,12" />
+        <PasswordBox x:Name="ConfirmInput" Grid.Row="3" Height="36" />
+
+        <TextBlock Grid.Row="4" Margin="0,12,0,0" Foreground="#C0392B" Text="{Binding ErrorMessage}" TextWrapping="Wrap" />
+
+        <Button Grid.Row="5"
+                Width="120"
+                Height="36"
+                HorizontalAlignment="Right"
+                Content="保存密码"
+                Click="OnSaveClicked" />
+    </Grid>
+</Window>
